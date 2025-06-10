@@ -27,7 +27,7 @@ class sessionModel {
         try{
             const [results, metadata] = await db.query(
                 "EXECUTE [dbo].[obtenerSesion] @USR_ID= ? ,@TOKEN = ? ",
-                {type: QueryTypes.RAW,replacements: [usr_id,token]}
+                {type: QueryTypes.SELECT,replacements: [usr_id,token]}
             );
 
             if (!results){

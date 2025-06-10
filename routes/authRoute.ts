@@ -7,7 +7,7 @@ import validarSesion from "../middlewares/validarSesionMiddleware";
 
 const router = Router();
 
-router.post('/login',
+router.get('/login',
 [
     check('login','El usuario es obligatorio').not().isEmpty(),
     check('pass','La contraseña es obligatoria').not().isEmpty(),

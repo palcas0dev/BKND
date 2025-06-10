@@ -2,11 +2,11 @@ import { Sequelize }  from 'sequelize';
 import { MsSqlDialect } from '@sequelize/mssql';
 import * as dotenv from 'dotenv';
 dotenv.config({path:'../.env'});
-let DBName : string = process.env.BD_NAME||"---";
-let DBPass : string = process.env.BD_PASS||"--";
-let DBUser : string = process.env.BD_USR ||"--";
-let DBHost : string = process.env.BD_HOST||"--";
-let DBPort : any = process.env.BD_PORT || 0;
+let DBName : string = process.env.BD_NAME||"mptest";
+let DBPass : string = process.env.BD_PASS||"casa123.";
+let DBUser : string = process.env.BD_USR ||"sa";
+let DBHost : string = process.env.BD_HOST||"DTUNCHEZ";
+let DBPort : any = process.env.BD_PORT || 1433;
 
 
 // const db = new Sequelize(DBName,DBUser,DBPass,{

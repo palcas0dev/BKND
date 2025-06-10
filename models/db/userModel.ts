@@ -9,7 +9,7 @@ class userModel{
         try{
             const [results, metadata] = await db.query(
                 "EXECUTE [dbo].[obtenerUsuarios] @USR_LOGIN = ? , @USR_ESTADO = ?",
-                {type: QueryTypes.RAW,replacements: [login,'S']}
+                {type: QueryTypes.SELECT,replacements: [login,'S']}
             );
             const validarPass = bcrypt.compareSync(pass, results.USR_PASS);
             if(!validarPass){

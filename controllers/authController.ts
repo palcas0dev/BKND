@@ -8,13 +8,13 @@ let rMvc: responseModel;
 
 export const login :any = async(req: Request, res:Response ) => {
 
-    const { login, pass, pass_issue} = req.body;
+    const { login, pass, pass_issue} = req.query;
     try{
 
         const validarLogin:any = await userModel.login(login, pass);
         //Generar JWT
         if (!validarLogin.success){
-            rMvc  = new responseModel(false,'Acceso Denegado',{});
+            rMvc  = new responseModel(false,'Acceso Denegado',{validarLogin});
             return res.status(401).json( rMvc);
         }
         const token:any = await generarJWT( validarLogin.id );

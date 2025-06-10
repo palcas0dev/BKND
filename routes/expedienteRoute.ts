@@ -10,10 +10,10 @@ const router = Router();
 
 router.get('/',
 [
-    header('x-token','No se puede recuperar la sesion.').not().isEmpty(),
-    header('x-user','No se puede recuperar la sesion.').not().isEmpty(),
-    validarJwt,
-    validarSesion(),
+    // header('x-token','No se puede recuperar la sesion.').not().isEmpty(),
+    // header('x-user','No se puede recuperar la sesion.').not().isEmpty(),
+    // validarJwt,
+    // validarSesion(),
     validarCampos
 ]
 ,getExpedientes);
