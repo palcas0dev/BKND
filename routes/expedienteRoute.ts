@@ -8,7 +8,7 @@ import { getExpedientes, postExpedientes, putExpedientes } from "../controllers/
 const router = Router();
 
 
-router.get('/',
+router.get('/api/expediente/',
 [
     // header('x-token','No se puede recuperar la sesion.').not().isEmpty(),
     // header('x-user','No se puede recuperar la sesion.').not().isEmpty(),
@@ -17,7 +17,7 @@ router.get('/',
     validarCampos
 ]
 ,getExpedientes);
-router.post('/',
+router.post('/api/expediente/',
 [
     header('x-token','No se puede recuperar la sesion.').not().isEmpty(),
     header('x-user','No se puede recuperar la sesion.').not().isEmpty(),
@@ -34,7 +34,7 @@ router.post('/',
 ]
 ,postExpedientes);
 
-router.put('/:id',
+router.put('/api/expediente/:id',
 [
     header('x-token','No se puede recuperar la sesion.').not().isEmpty(),
     header('x-user','No se puede recuperar la sesion.').not().isEmpty(),

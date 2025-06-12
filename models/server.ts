@@ -2,6 +2,9 @@ import express,{Application} from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from '../swagger_output.json';
+
 
 import db from '../db/connection';
 import authRoutes from '../routes/authRoute';
@@ -17,8 +20,10 @@ class Server{
     private app: Application;
     private port: string;
     private apiPaths = {
-        auth:'/api/auth',
-        expedientes: '/api/expedientes'
+        auth:'',
+        expedientes: '',
+        nuevo: ''
+
     };
 
     constructor(){
@@ -66,6 +71,8 @@ class Server{
     routes (){
         this.app.use(this.apiPaths.auth, authRoutes);
         this.app.use(this.apiPaths.expedientes, expedienteRoutes);
+        this.app.use(this.apiPaths.nuevo, expedienteRoutes);
+        this.app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
     }
 
     listen () {

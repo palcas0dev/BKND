@@ -7,7 +7,7 @@ import validarSesion from "../middlewares/validarSesionMiddleware";
 
 const router = Router();
 
-router.get('/login',
+router.get('/api/auth/login',
 [
     check('login','El usuario es obligatorio').not().isEmpty(),
     check('pass','La contraseña es obligatoria').not().isEmpty(),
@@ -15,7 +15,7 @@ router.get('/login',
 ]
 ,login);
 
-router.delete('/logout',
+router.delete('/api/auth/logout',
 [
     header('x-token','No se puede recuperar la sesion.').not().isEmpty(),
     header('x-user','No se puede recuperar la sesion.').not().isEmpty(),
